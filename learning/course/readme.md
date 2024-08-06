@@ -21,7 +21,8 @@ Uma plataforma de processamento de dados distribuída e de código aberto, proje
 
 ![alt text](image.png)
 
->Compete com o Spark, Samza, Storm e outros.
+>Compete com o Spark, Samza, Storm e outros. 
+
 
 ## Desafios com processmento em Stream
 

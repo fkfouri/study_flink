@@ -1,5 +1,7 @@
 # Apache Flink - Glossario
 
+- **Actor Sytem**: refere-se ao uso do modelo de atores para gerenciar a comunicação assíncrona e concorrente entre diferentes componentes do sistema. Esse modelo é particularmente útil em sistemas distribuídos, onde a comunicação entre componentes precisa ser eficiente, resiliente e escalável.
+
 - **Apache Flink**: Uma plataforma de processamento de dados distribuída e de código aberto, projetada para processar fluxos de dados em tempo real e em lotes.
 - **Batch Processing (Processamento em Lote)**: Processamento de grandes volumes de dados agrupados (lotes) de uma só vez.
 - **Checkpointing (Pontos de Verificação)**: Mecanismo de recuperação de falhas do Flink que salva periodicamente o estado do aplicativo para garantir a consistência dos dados.
@@ -19,11 +21,12 @@
 - **Parallelism (Paralelismo)**: O número de sub-tarefas em que uma tarefa pode ser dividida, permitindo a execução simultânea.
 - **Processing Time (Tempo de Processamento)**: O timestamp no momento em que um evento é processado pelo sistema.
 - **Queryable State (Estado Consultável)**: Funcionalidade que permite consultar o estado de um aplicativo Flink em execução.
+- **RocksDB**: RocksDB é uma biblioteca de armazenamento embutida, desenvolvida pelo Facebook, que é usada para armazenamento eficiente de dados em disco. No contexto do Apache Flink, RocksDB é frequentemente usado como um backend de estado para armazenar o estado de operadores de forma persistente e eficiente.
 - **Savepoint**: Um snapshot manual do estado de um trabalho do Flink que pode ser usado para reiniciar o trabalho a partir de um estado consistente.
 - **Sink**: Componente do Flink que escreve dados processados para um destino externo, como um sistema de arquivos ou um banco de dados.
 - **Source (Fonte)**: Componente do Flink que lê dados de uma origem externa, como um banco de dados ou uma fila de mensagens.
 - **State (Estado)**: Dados mantidos pelos operadores do Flink durante o processamento de fluxos de dados.
-- **State Backend (Backend de Estado)**: Subsistema no Flink que gerencia a persistência do estado, como RocksDB ou memória.
+- **State Backend (Backend de Estado)**: Subsistema no Flink que gerencia a persistência do estado, como RocksDB ou memória. State Backend no Flink refere-se ao mecanismo utilizado para gerenciar e persistir o estado dos operadores durante o processamento de dados. Existem dois principais state backends no Flink: MemoryStateBackend e RocksDBStateBackend.
 - **Stream Processing (Processamento de Fluxo)**: Processamento contínuo de dados em movimento, onde os dados são processados imediatamente à medida que chegam.
 - **Task (Tarefa)**: A unidade mais básica de execução dentro de um trabalho do Flink.
 - **Task Manager**: Componente do Flink que executa tarefas individuais em um cluster, gerenciando threads e memória.
@@ -33,8 +36,30 @@
 - **Windowing (Janelamento)**: Técnica para agrupar fluxos de dados em intervalos de tempo ou contagem de eventos para processamento.
 
 
+
 # Semanticas 
 
 - **Exactly-once semantics**: é uma garantia fornecida por sistemas de processamento de dados distribuídos como o Flink, onde cada evento é processado exatamente uma vez. Isso significa que, independentemente de falhas ou reinicializações, o estado do sistema refletirá exatamente uma única execução de cada evento.
 - **At-least-once Semantics**: Garante que cada evento seja processado pelo menos uma vez, mas permite duplicações.
 - **At-most-once Semantics**: Garante que cada evento seja processado no máximo uma vez, podendo perder eventos em caso de falhas.
+
+## Engines de processamento concorrentes ao Flink
+![alt text](image.png)
+- Spark não tem gerenciamento de estado (tem que ser desenvolvido). Inicialmente feito para processamento em batch, depois adaptado para stream.
+- Apache Beam, ainda em tracionamento (evolução).
+- Bytewax - Python mas não maduro o suficiente
+- Scala/Python, vou ter que desenvolver o gerencimaneto de estado (reinventar a roda).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
