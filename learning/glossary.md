@@ -14,6 +14,7 @@
 - **Job (Trabalho)**: Uma unidade de processamento enviada para o cluster do Flink, composta por um ou mais operadores.
 - **Job Graph**: Representação interna de um trabalho do Flink, descrevendo a topologia de operadores e suas conexões.
 - **Job Manager**: Componente do Flink responsável por coordenar a execução de um trabalho, gerenciando recursos e supervisionando tarefas.
+- **keyBy**: é uma função utilizada para particionar um fluxo de dados em sub-fluxos com base em uma chave. Isso significa que todos os elementos com a mesma chave serão encaminhados para a mesma instância de operador, permitindo operações estado-centradas, como agregações, janelamentos ou junções, de serem realizadas com precisão.
 - **Operator (Operador)**: Uma função ou transformação aplicada aos dados, como map, filter, window, etc.
 - **Parallelism (Paralelismo)**: O número de sub-tarefas em que uma tarefa pode ser dividida, permitindo a execução simultânea.
 - **Processing Time (Tempo de Processamento)**: O timestamp no momento em que um evento é processado pelo sistema.
@@ -27,7 +28,13 @@
 - **Task (Tarefa)**: A unidade mais básica de execução dentro de um trabalho do Flink.
 - **Task Manager**: Componente do Flink que executa tarefas individuais em um cluster, gerenciando threads e memória.
 - **Transformation (Transformação)**: Operações aplicadas aos dados dentro de um fluxo, como map, flatMap, filter, etc.
+- **Unbounded Data**: refere-se a fluxos de dados contínuos que não têm um início e um fim predefinido. Esses fluxos de dados são gerados continuamente a partir de várias fontes, como sensores IoT, logs de servidor, transações financeiras, entre outros, e precisam ser processados em tempo real à medida que chegam.
 - **Watermark**: Sinal utilizado para indicar o progresso do tempo de evento em um fluxo de dados, ajudando a gerenciar a latência e a precisão no processamento de janelas.
 - **Windowing (Janelamento)**: Técnica para agrupar fluxos de dados em intervalos de tempo ou contagem de eventos para processamento.
 
 
+# Semanticas 
+
+- **Exactly-once semantics**: é uma garantia fornecida por sistemas de processamento de dados distribuídos como o Flink, onde cada evento é processado exatamente uma vez. Isso significa que, independentemente de falhas ou reinicializações, o estado do sistema refletirá exatamente uma única execução de cada evento.
+- **At-least-once Semantics**: Garante que cada evento seja processado pelo menos uma vez, mas permite duplicações.
+- **At-most-once Semantics**: Garante que cada evento seja processado no máximo uma vez, podendo perder eventos em caso de falhas.
