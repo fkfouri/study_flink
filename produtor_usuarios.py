@@ -7,7 +7,7 @@ import time
 if __name__ == "main":
     conf = {
         'bootstrap.servers': 'localhost:9092',
-        'client.id': 'produtor_compras'
+        'client.id': 'produtor_usuarios'
     }
 
     # criar um producer
