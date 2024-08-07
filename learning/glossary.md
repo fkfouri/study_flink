@@ -31,6 +31,9 @@
 - **Task (Tarefa)**: A unidade mais básica de execução dentro de um trabalho do Flink.
 - **Task Manager**: Componente do Flink que executa tarefas individuais em um cluster, gerenciando threads e memória.
 - **Transformation (Transformação)**: Operações aplicadas aos dados dentro de um fluxo, como map, flatMap, filter, etc.
+
+- **Tumbling window**: é uma técnica útil em processamento de streams para agrupar e processar dados em intervalos de tempo fixos e não sobrepostos. Eles são amplamente usados em cenários onde a simplicidade e a clareza na agregação de dados em períodos regulares são necessárias. No entanto, para análises mais complexas ou para lidar com dados de forma contínua, outras técnicas de janelas, como sliding windows, podem ser mais apropriadas.
+
 - **Unbounded Data**: refere-se a fluxos de dados contínuos que não têm um início e um fim predefinido. Esses fluxos de dados são gerados continuamente a partir de várias fontes, como sensores IoT, logs de servidor, transações financeiras, entre outros, e precisam ser processados em tempo real à medida que chegam.
 - **Watermark**: Sinal utilizado para indicar o progresso do tempo de evento em um fluxo de dados, ajudando a gerenciar a latência e a precisão no processamento de janelas.
 - **Windowing (Janelamento)**: Técnica para agrupar fluxos de dados em intervalos de tempo ou contagem de eventos para processamento.
