@@ -17,11 +17,11 @@ CREATE TABLE usuarios (
     'topic' = 'usuarios',
     'properties.bootstrap.servers' = 'localhost:9092',
     'properties.group.id' = 'group.usuarios',
+    'scan.startup.mode' = 'earliest-offset',
     'format' = 'json',
-    'scan.startup.mode' = 'earliest-offset'   
 );
 
-
+-- https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/
 CREATE TABLE compras (
     id_compra   INTEGER,
     produto     STRING,
@@ -33,8 +33,8 @@ CREATE TABLE compras (
     'topic' = 'compras',
     'properties.bootstrap.servers' = 'localhost:9092',
     'properties.group.id' = 'group.compras',
-    'format' = 'json',
-    'scan.startup.mode' = 'earliest-offset'   
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json'
 );
 
 show tables;

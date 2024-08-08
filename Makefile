@@ -21,7 +21,7 @@ clear-all-i:
 #################################################################################
 
 compose_up:
-	docker-compose -f docker-compose.yml up -d --force-recreate	
+	docker-compose -f docker-compose.yml up -d --build
 # docker-compose -f docker-compose.yml up -d
 
 
@@ -30,8 +30,9 @@ compose_down:
 
 
 create_topic:
-	docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --create --topic compras --partitions 1 --replication-factor 1
-	docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --create --topic usuarios --partitions 1 --replication-factor 1
+	-docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --create --topic compras --partitions 1 --replication-factor 1
+	-docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --create --topic usuarios --partitions 1 --replication-factor 1
+	make list_topics
 
 list_topics:
 	docker exec -it kafka kafka-topics --bootstrap-server localhost:9092 --list
@@ -39,6 +40,13 @@ list_topics:
 ########################
 # Flink
 ########################
+build:
+	docker image build -t temp .
+
+pull:
+	docker pull flink:scala_2.12-java11
+
+
 bash:
 	docker exec -it jobmanager bash
 
@@ -48,3 +56,8 @@ sql_client:
 
 # Executar esse cmd dentro do sql-client
 # set sql-client.execution.result-mode = tableau;
+
+copy_exemples:
+	docker cp jobmanager:/opt/flink/examples ./examples/
+
+
