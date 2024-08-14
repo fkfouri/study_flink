@@ -18,7 +18,7 @@ CREATE TABLE usuarios (
     'properties.bootstrap.servers' = 'localhost:9092',
     'properties.group.id' = 'group.usuarios',
     'scan.startup.mode' = 'earliest-offset',
-    'format' = 'json',
+    'format' = 'json'
 );
 
 -- https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/

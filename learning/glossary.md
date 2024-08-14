@@ -23,7 +23,9 @@
 - **Queryable State (Estado Consultável)**: Funcionalidade que permite consultar o estado de um aplicativo Flink em execução.
 - **RocksDB**: RocksDB é uma biblioteca de armazenamento embutida, desenvolvida pelo Facebook, que é usada para armazenamento eficiente de dados em disco. No contexto do Apache Flink, RocksDB é frequentemente usado como um backend de estado para armazenar o estado de operadores de forma persistente e eficiente.
 - **Savepoint**: Um snapshot manual do estado de um trabalho do Flink que pode ser usado para reiniciar o trabalho a partir de um estado consistente.
+
 - **Sink**: Componente do Flink que escreve dados processados para um destino externo, como um sistema de arquivos ou um banco de dados.
+
 - **Source (Fonte)**: Componente do Flink que lê dados de uma origem externa, como um banco de dados ou uma fila de mensagens.
 - **State (Estado)**: Dados mantidos pelos operadores do Flink durante o processamento de fluxos de dados.
 - **State Backend (Backend de Estado)**: Subsistema no Flink que gerencia a persistência do estado, como RocksDB ou memória. State Backend no Flink refere-se ao mecanismo utilizado para gerenciar e persistir o estado dos operadores durante o processamento de dados. Existem dois principais state backends no Flink: MemoryStateBackend e RocksDBStateBackend.
@@ -32,12 +34,21 @@
 - **Task Manager**: Componente do Flink que executa tarefas individuais em um cluster, gerenciando threads e memória.
 - **Transformation (Transformação)**: Operações aplicadas aos dados dentro de um fluxo, como map, flatMap, filter, etc.
 
-- **Tumbling window**: é uma técnica útil em processamento de streams para agrupar e processar dados em intervalos de tempo fixos e não sobrepostos. Eles são amplamente usados em cenários onde a simplicidade e a clareza na agregação de dados em períodos regulares são necessárias. No entanto, para análises mais complexas ou para lidar com dados de forma contínua, outras técnicas de janelas, como sliding windows, podem ser mais apropriadas.
-
 - **Unbounded Data**: refere-se a fluxos de dados contínuos que não têm um início e um fim predefinido. Esses fluxos de dados são gerados continuamente a partir de várias fontes, como sensores IoT, logs de servidor, transações financeiras, entre outros, e precisam ser processados em tempo real à medida que chegam.
 - **Watermark**: Sinal utilizado para indicar o progresso do tempo de evento em um fluxo de dados, ajudando a gerenciar a latência e a precisão no processamento de janelas.
 - **Windowing (Janelamento)**: Técnica para agrupar fluxos de dados em intervalos de tempo ou contagem de eventos para processamento.
 
+
+# Windows
+
+- **Custom window**: Se refer á uma janela personalizada, com lógica definida pelo usuário para os limites de janela (*limit bound*).
+
+- **Global window**: conta todo o fluxo com uma única janela.
+
+- **Session window**: janela de sessao cobre todos os eventos que ocorrem continuamente em uma sessao. Os limites de uma sessão são baseados em períodos de inatividade. Imagine um IOT que para de enviar mensagens durante um curto período de tempo, isso fecha uma janela de sessão.
+- **Sliding window**: é uma técnica de sobreposição de janelas. Ex. Janela 1 do minuto 0 ao minuto 2, Janela 2 do minuto 1 ao minuto 3, etc.
+
+- **Tumbling window**: é uma técnica útil em processamento de streams para agrupar e processar dados em intervalos de tempo fixos e não sobrepostos. Eles são amplamente usados em cenários onde a simplicidade e a clareza na agregação de dados em períodos regulares são necessárias. No entanto, para análises mais complexas ou para lidar com dados de forma contínua, outras técnicas de janelas, como sliding windows, podem ser mais apropriadas.
 
 
 # Semanticas 
